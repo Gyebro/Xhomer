@@ -90,7 +90,7 @@ CC += -O3 -Winline -fomit-frame-pointer
 TARGET = $(shell echo `uname -s`-`uname -r | cut -d . -f 1`)
 
 CCINCS =
-CCDEFS += -DLOCAL=static -DGLOBAL=extern -DPRO -DDGA
+CCDEFS += -DLOCAL=static -DGLOBAL=extern -DPRO -DDGA -DDGA2
 CCLIBS =
 CCLINK = -lm -lXxf86vm -l:libXxf86dga.a -lXext
 CCLINKSTATIC = -static -ldl

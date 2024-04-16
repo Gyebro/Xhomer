@@ -777,14 +777,14 @@ int			old_uid = geteuid();
 
 	    for(i=0; i<modecount; i++)
 	      if ((dgamode[i].viewportWidth == PRO_VID_SCRWIDTH)
-	          && (dgamode[i].viewportHeight == pro_screen_full_scale*PRO_VID_SCRHEIGHT))
+	          && (dgamode[i].viewportHeight == pro_screen_full_scale*PRO_VID_SCRHEIGHT+48))
 	        break;
 	    XFree(dgamode);
 
 	    if (i == modecount)
 	    {
 	      printf("DGA2 Error - unable to find correct screen mode\r\n");
-	      printf("%d x %d viewport required\r\n", PRO_VID_SCRWIDTH, pro_screen_full_scale*PRO_VID_SCRHEIGHT);
+	      printf("%d x %d viewport required\r\n", PRO_VID_SCRWIDTH, pro_screen_full_scale*PRO_VID_SCRHEIGHT+48);
 	      seteuid(old_uid);
 	      return PRO_FAIL;
 	    }
