@@ -826,15 +826,17 @@ int			old_uid = geteuid();
 
 	    XF86VidModeGetAllModeLines(ProDisplay, ProScreen, &modecount, &modesinfo);
 
-	    for(i=0; i<modecount; i++)
-	      if ((modesinfo[i]->hdisplay == PRO_VID_SCRWIDTH)
-	          && (modesinfo[i]->vdisplay == pro_screen_full_scale*PRO_VID_SCRHEIGHT))
+	    for(i=0; i<modecount; i++) {
+		  printf("Mode found with h x w = %d x %d\r\n", modesinfo[i]->hdisplay, modesinfo[i]->vdisplay);
+	      if ((modesinfo[i]->hdisplay == PRO_VID_SCRWIDTH) && (modesinfo[i]->vdisplay == pro_screen_full_scale*PRO_VID_SCRHEIGHT+48)) {
 	        break;
+		  }
+		}
 
 	    if (i == modecount)
 	    {
 	      printf("DGA1 Error - unable to find correct screen mode\r\n");
-	      printf("%d x %d viewport required\r\n", PRO_VID_SCRWIDTH, pro_screen_full_scale*PRO_VID_SCRHEIGHT);
+	      printf("%d x %d viewport required\r\n", PRO_VID_SCRWIDTH, pro_screen_full_scale*PRO_VID_SCRHEIGHT+48);
 	      seteuid(old_uid);
 	      return PRO_FAIL;
 	    }

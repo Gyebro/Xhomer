@@ -5,4 +5,5 @@ echo ""
 echo "(This is necessary only to run in DGA mode or to access certain"
 echo "hardware devices in the host echo operating system)"
 echo ""
-su -c "chown root.root xhomer xhomer.static texthomer texthomer.static >&/dev/null ; chmod +s xhomer xhomer.static texthomer texthomer.static >&/dev/null"
+sudo chown root.root xhomer xhomer.static texthomer texthomer.static
+sudo chmod +s xhomer xhomer.static texthomer texthomer.static
