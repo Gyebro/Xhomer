@@ -55,7 +55,7 @@ struct pro_gfx_driver {
 };
 typedef struct pro_gfx_driver pro_gfx_driver_t;
 
-pro_gfx_driver_t *pro_gfx_current_driver;
+extern pro_gfx_driver_t *pro_gfx_current_driver;
 
 #ifdef HAS_CURSES
 GLOBAL pro_gfx_driver_t pro_curses_driver;

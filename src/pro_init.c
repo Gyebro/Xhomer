@@ -47,6 +47,7 @@ int	pro_kb_port;
 int	pro_ptr_port;
 int	pro_com_port;
 
+pro_gfx_driver_t *pro_gfx_current_driver;
 
 #ifdef TRACE
 /* PC Trace */
