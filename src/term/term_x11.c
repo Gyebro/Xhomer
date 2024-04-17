@@ -777,14 +777,14 @@ int			old_uid = geteuid();
 
 	    for(i=0; i<modecount; i++)
 	      if ((dgamode[i].viewportWidth == PRO_VID_SCRWIDTH)
-	          && (dgamode[i].viewportHeight == pro_screen_full_scale*PRO_VID_SCRHEIGHT+48))
+	          && (dgamode[i].viewportHeight == pro_screen_full_scale*PRO_VID_SCRHEIGHT))
 	        break;
 	    XFree(dgamode);
 
 	    if (i == modecount)
 	    {
 	      printf("DGA2 Error - unable to find correct screen mode\r\n");
-	      printf("%d x %d viewport required\r\n", PRO_VID_SCRWIDTH, pro_screen_full_scale*PRO_VID_SCRHEIGHT+48);
+	      printf("%d x %d viewport required\r\n", PRO_VID_SCRWIDTH, pro_screen_full_scale*PRO_VID_SCRHEIGHT);
 	      seteuid(old_uid);
 	      return PRO_FAIL;
 	    }
@@ -828,7 +828,7 @@ int			old_uid = geteuid();
 
 	    for(i=0; i<modecount; i++) {
 		  printf("Mode found with h x w = %d x %d\r\n", modesinfo[i]->hdisplay, modesinfo[i]->vdisplay);
-	      if ((modesinfo[i]->hdisplay == PRO_VID_SCRWIDTH) && (modesinfo[i]->vdisplay == pro_screen_full_scale*PRO_VID_SCRHEIGHT+48)) {
+	      if ((modesinfo[i]->hdisplay == PRO_VID_SCRWIDTH) && (modesinfo[i]->vdisplay == pro_screen_full_scale*PRO_VID_SCRHEIGHT)) {
 	        break;
 		  }
 		}
@@ -836,7 +836,7 @@ int			old_uid = geteuid();
 	    if (i == modecount)
 	    {
 	      printf("DGA1 Error - unable to find correct screen mode\r\n");
-	      printf("%d x %d viewport required\r\n", PRO_VID_SCRWIDTH, pro_screen_full_scale*PRO_VID_SCRHEIGHT+48);
+	      printf("%d x %d viewport required\r\n", PRO_VID_SCRWIDTH, pro_screen_full_scale*PRO_VID_SCRHEIGHT);
 	      seteuid(old_uid);
 	      return PRO_FAIL;
 	    }
@@ -926,7 +926,6 @@ int			old_uid = geteuid();
 	      pro_screen_pixsize = 4;
 	      pro_screen_pixsize_act = 3;
 	      break;
-
 	    default:
 	      printf("Unsupported pixel depth\r\n");
 	      return PRO_FAIL;

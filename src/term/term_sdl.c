@@ -21,6 +21,8 @@
 
 #ifdef PRO
 
+#define REPEAT_SCREEN_LINES
+
 #ifdef HAS_SDL
 
 #include <SDL.h>
@@ -933,6 +935,23 @@ int flip_needed = 0;
 		      SDL_BlitSurface(pro_sdl_overlay_data, NULL, pro_sdl_image, NULL);
 
 		    SDL_BlitSurface(pro_sdl_image, &sdl_srcrect, ProSDLScreen, &sdl_dstrect);
+
+#ifdef REPEAT_SCREEN_LINES
+			if (pro_screen_window_scale > 1) {
+				sdl_dstrect.x = x;
+				sdl_dstrect.y = y*pro_screen_window_scale-1;
+				sdl_dstrect.w = PRO_VID_CLS_PIX;
+				sdl_dstrect.h = 1;
+				SDL_BlitSurface(pro_sdl_image, &sdl_srcrect, ProSDLScreen, &sdl_dstrect);
+			}
+			if (pro_screen_window_scale > 2) {
+				sdl_dstrect.x = x;
+				sdl_dstrect.y = y*pro_screen_window_scale-2;
+				sdl_dstrect.w = PRO_VID_CLS_PIX;
+				sdl_dstrect.h = 1;
+				SDL_BlitSurface(pro_sdl_image, &sdl_srcrect, ProSDLScreen, &sdl_dstrect);
+			}
+#endif
 
 	        /* Mark cache entry valid */
 
