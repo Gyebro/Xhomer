@@ -544,6 +544,8 @@ char	window_pos_env[256];
 	  ProSDLScreen = SDL_SetVideoMode(PRO_VID_SCRWIDTH, pro_screen_winheight, 0, SDL_SWSURFACE);
 #endif
 
+	  int tfsRetval = SDL_WM_ToggleFullScreen(ProSDLScreen);
+
 	  ProSDLDepth = ProSDLScreen->format->BitsPerPixel;
 
 	  SDL_VERSION(&ProSDLWindow.version);
